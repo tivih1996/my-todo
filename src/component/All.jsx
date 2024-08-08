@@ -4,6 +4,10 @@ import { useEffect } from 'react'
 import { capSID } from './SID.js';
 import { useRef } from 'react';
 import './style.css'
+import '../App.css'
+import Button from '@mui/material/Button';
+
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 function All() {
     const [data, setData] = useState([])
@@ -53,22 +57,25 @@ function All() {
     }
     return (
         <>
+        <div className='App'>
             <div>
-                <input type="text" id="mytodo" ref={inputRef} placeholder='add details'  />
-                <button type="submit" onClick={addTodo}>Add</button>
+                <input className='inputtodo' type="text" id="mytodo" ref={inputRef} placeholder='add details'  />
+                
+                <Button  onClick={addTodo} variant="contained" >Add</Button>
             </div>
             <div>
                 {data.map((item) =>(
                     <label className='label' id={item.id}>
                     <input type="checkbox" checked={item.state} id={item.id} onClick={handleCheck} />
                     {item.name}
-                    <button id={item.id} onClick={handleDelete} >Xoá</button>
+                    <Button  id={item.id} onClick={handleDelete} endIcon={<DeleteOutlineIcon/>}>Delete</Button>
                     </label>
                     
 
                 ))
 
                 }
+            </div>
             </div>
         </>
     )

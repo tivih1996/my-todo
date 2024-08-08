@@ -1,4 +1,13 @@
 .label {
     display: block;
-    
+
+}
+.inputtodo{
+    width: 30vw;
+    height: 20px;
+    padding: 5px ;
+    font-size: 20px ;
+    text-align: center;
+    border: 5px solid brown ;
+    border-radius: 10px;
 }

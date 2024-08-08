@@ -5,6 +5,9 @@ import { useEffect } from 'react'
 import { capSID } from './SID.js';
 import { useRef } from 'react';
 import './style.css'
+import '../App.css'
+import Button from '@mui/material/Button';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 function Active() {
     const [data, setData] = useState([])
@@ -58,6 +61,7 @@ function Active() {
     }
     return (
         <>
+        <div className='App'>
             <div>
                 <input type="text" id="mytodo" ref={inputRef} placeholder='add details'  />
                 <button type="submit" onClick={addTodo}>Add</button>
@@ -67,13 +71,14 @@ function Active() {
                     <label className='label' id={item.id}>
                     <input type="checkbox" checked={item.state} id={item.id} onClick={handleCheck} />
                     <span>{item.name}</span>
-                    <button id={item.id} onClick={handleDelete} >Xoá</button>
+                    <Button id={item.id} onClick={handleDelete} startIcon={<DeleteOutlineIcon/>}></Button>
                     </label>
                     
 
                 ))
 
                 }
+            </div>
             </div>
         </>
     )

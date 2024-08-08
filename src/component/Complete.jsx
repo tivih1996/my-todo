@@ -1,9 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react'
-import { capSID } from './SID.js';
-import { useRef } from 'react';
 import './style.css'
+import '../App.css'
+import Button from '@mui/material/Button';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 
 function Complete() {
@@ -43,12 +44,13 @@ function Complete() {
     }
     return (
         <>
-            <div>
+            <div className='App'>
                 {data.map((item) =>(
                     <label className='label' id={item.id}>
                     <input type="checkbox" checked={item.state} id={item.id} onClick={handleCheck} />
                     <span>{item.name}</span>
-                    <button id={item.id} onClick={handleDelete} >Xoá</button>
+                    {/* <button id={item.id} onClick={handleDelete} >Xoá</button> */}
+                    <Button id={item.id} onClick={handleDelete} startIcon={<DeleteOutlineIcon/>}></Button>
                     </label>
                     
                 ))
