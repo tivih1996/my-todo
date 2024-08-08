@@ -25,7 +25,7 @@ function All() {
         const newTodo = {
             id: capSID(),
             name: inputRef.current.value,
-            state: true
+            state: false
         }
 
         const dataTodo = JSON.parse(localStorage.getItem('dataTodo'))
@@ -34,7 +34,7 @@ function All() {
         setData((prevItems) => [...prevItems, newTodo]);
         inputRef.current.value = '' 
     }
-    // hadnlecheck
+    // handle updatecheck
     const handleCheck = (e) => {
         console.log(e.target.id)
         const updateData = data.map((item) => 
@@ -42,6 +42,12 @@ function All() {
             ? {...item, state: !item.state } 
             : item   
          )
+         localStorage.setItem('dataTodo',JSON.stringify(updateData))
+       setData(updateData)
+    }
+    // handle delete
+    const handleDelete =(e) => {
+        const updateData = data.filter(item => item.id !== e.target.id )
          localStorage.setItem('dataTodo',JSON.stringify(updateData))
        setData(updateData)
     }
@@ -56,7 +62,9 @@ function All() {
                     <label className='label' id={item.id}>
                     <input type="checkbox" checked={item.state} id={item.id} onClick={handleCheck} />
                     {item.name}
+                    <button id={item.id} onClick={handleDelete} >Xoá</button>
                     </label>
+                    
 
                 ))
 
