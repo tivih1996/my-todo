@@ -63,8 +63,8 @@ function Active() {
         <>
         <div className='App'>
             <div>
-                <input type="text" id="mytodo" ref={inputRef} placeholder='add details'  />
-                <button type="submit" onClick={addTodo}>Add</button>
+            <input className='inputtodo' type="text" id="mytodo" ref={inputRef} placeholder='add details'  />
+                <Button  onClick={addTodo} variant="contained" >Add</Button>
             </div>
             <div>
                 {data.map((item) =>(
